@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Automate Together</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Space Grotesk', sans-serif; }
+    .mono { font-family: 'JetBrains Mono', monospace; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+    }
+    @keyframes flow {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+    .float-1 { animation: float 6s ease-in-out infinite; }
+    .float-2 { animation: float 6s ease-in-out infinite 1s; }
+    .float-3 { animation: float 6s ease-in-out infinite 2s; }
+    .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+    .flow-line { stroke-dasharray: 1000; animation: flow 3s linear infinite; }
+    .gradient-text {
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    .tool-card {
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .tool-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div id="app-wrapper" class="w-full h-full overflow-auto" style="background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4" style="background: rgba(15, 15, 35, 0.8); backdrop-filter: blur(10px);">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+     <div class="flex items-center gap-2">
+      <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">
+       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+       </svg>
+</div>
+<a href="index.html" aria-label="Go to homepage" class="flex items-center gap-2">
+  <span class="text-white font-semibold text-lg mono">dendat.dev</span>
+</a>
+     </div>
+     <div class="hidden md:flex items-center gap-8"><a href="#about" class="text-gray-300 hover:text-white transition-colors">About</a> <a href="#tools" class="text-gray-300 hover:text-white transition-colors">Tools</a> <a href="#projects" class="text-gray-300 hover:text-white transition-colors">Projects</a> <a href="#contact" class="px-5 py-2 rounded-full text-white font-medium transition-all hover:scale-105" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="min-h-screen flex items-center justify-center px-6 pt-20 relative overflow-hidden"><!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+     <div class="absolute top-20 left-10 w-72 h-72 rounded-full opacity-20 float-1" style="background: radial-gradient(circle, #6366f1 0%, transparent 70%);"></div>
+     <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full opacity-15 float-2" style="background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);"></div>
+     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10 float-3" style="background: radial-gradient(circle, #d946ef 0%, transparent 70%);"></div><!-- Flow Lines SVG -->
+     <svg class="absolute inset-0 w-full h-full opacity-20" xmlns="http://www.w3.org/2000/svg"><path class="flow-line" d="M0,200 Q200,100 400,200 T800,200" stroke="#6366f1" stroke-width="2" fill="none" /> <path class="flow-line" d="M0,400 Q300,300 600,400 T1200,400" stroke="#8b5cf6" stroke-width="2" fill="none" style="animation-delay: 0.5s;" />
+     </svg>
+    </div>
+     <div class="max-w-4xl mx-auto text-center relative z-10">
+		<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style="background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.3);"><span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> <span class="text-gray-300 text-sm mono">Available for new projects</span>
+		</div>
+		 <h1 id="hero-name" class="text-5xl md:text-7xl font-bold text-white mb-4">Dennis Datahan</h1>
+		 <h2 id="hero-title" class="text-2xl md:text-4xl font-semibold gradient-text mb-6">Automation Specialist</h2>
+		 <p id="hero-tagline" class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">Transforming complex workflows into seamless automated systems, helping businesses save time, cut costs, and maximize efficiency through intelligent automation.</p>
+		 <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="#projects" class="px-8 py-4 rounded-full text-white font-semibold text-lg transition-all hover:scale-105 pulse-glow" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);"> View My Work </a> <a href="#contact" class="px-8 py-4 rounded-full font-semibold text-lg transition-all hover:scale-105" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2);"> Let's Talk </a>
+		 </div><!-- Stats -->
+	  </div>
+	  
+   </section><!-- Tools Section -->
+   <section id="tools" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">My Automation Stack</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Certified specialist in the industry’s top automation platforms</p>
+     </div>
+     <div class="grid md:grid-cols-3 gap-6"><!-- n8n Card -->
+      <div class="tool-card rounded-2xl p-8 cursor-pointer" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 107, 107, 0.05) 100%); border: 1px solid rgba(255, 107, 107, 0.2);">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #ff6b6b, #ee5a5a);">
+        <svg class="w-10 h-10 text-white" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-3">n8n</h3>
+       <p class="text-gray-400 mb-4">Self-hosted workflow automation with full control. Complex integrations, custom nodes, and enterprise-grade solutions.</p>
+       <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">Self-hosted</span> <span class="px-3 py-1 rounded-full text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">Custom Nodes</span> <span class="px-3 py-1 rounded-full text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">API Expert</span>
+       </div>
+      </div><!-- Make.com Card -->
+      <div class="tool-card rounded-2xl p-8 cursor-pointer" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(157, 78, 221, 0.05) 100%); border: 1px solid rgba(157, 78, 221, 0.2);">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #9d4edd, #7b2cbf);">
+        <svg class="w-10 h-10 text-white" viewbox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" /> <circle cx="12" cy="12" r="4" fill="#7b2cbf" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-3">Make.com</h3>
+       <p class="text-gray-400 mb-4">Visual automation platform for complex scenarios. Data transformation, error handling, and multi-step workflows.</p>
+       <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Visual Builder</span> <span class="px-3 py-1 rounded-full text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Scenarios</span> <span class="px-3 py-1 rounded-full text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Data Router</span>
+       </div>
+      </div><!-- Zapier Card -->
+      <div class="tool-card rounded-2xl p-8 cursor-pointer" style="background: linear-gradient(135deg, rgba(255, 116, 53, 0.1) 0%, rgba(255, 116, 53, 0.05) 100%); border: 1px solid rgba(255, 116, 53, 0.2);">
+       <div class="w-16 h-16 rounded-xl flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #ff7435, #ff5722);">
+        <svg class="w-10 h-10 text-white" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-bold text-white mb-3">Zapier</h3>
+       <p class="text-gray-400 mb-4">Quick integrations with 5000+ apps. Automated workflows, multi-step Zaps, and rapid deployment solutions.</p>
+       <div class="flex flex-wrap gap-2"><span class="px-3 py-1 rounded-full text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">5000+ Apps</span> <span class="px-3 py-1 rounded-full text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">Multi-step</span> <span class="px-3 py-1 rounded-full text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">Paths</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-24 px-6" style="background: rgba(0,0,0,0.2);">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+       <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Designing Smarter Workflows Through Automation</h2>
+       <p id="about-text" class="text-gray-400 text-lg leading-relaxed mb-8">Trained and certified in workflow automation, eliminating repetitive tasks so businesses can focus on what matters most. From simple task automation to complex enterprise integrations, systems are designed to scale seamlessly with business growth.</p>
+       <div class="space-y-4">
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: rgba(99, 102, 241, 0.2);">
+          <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-white font-semibold">
+           Certified Automation Specialist
+          </div>
+          <div class="text-gray-500 text-sm">
+           n8n, Make.com, Zapier Certified
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: rgba(99, 102, 241, 0.2);">
+          <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-white font-semibold">
+           Fast Turnaround
+          </div>
+          <div class="text-gray-500 text-sm">
+           Most projects completed in 1-2 weeks
+          </div>
+         </div>
+        </div>
+        <div class="flex items-center gap-4">
+         <div class="w-12 h-12 rounded-lg flex items-center justify-center" style="background: rgba(99, 102, 241, 0.2);">
+          <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+         </div>
+         <div>
+          <div class="text-white font-semibold">
+           Ongoing Support
+          </div>
+          <div class="text-gray-500 text-sm">
+           Maintenance packages available
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="relative">
+       <div class="aspect-square rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);">
+        <div class="w-full h-full flex items-center justify-center" style="background: rgba(0,0,0,0.3);">
+         <svg class="w-48 h-48 text-white opacity-80" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4" /> <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" />
+         </svg>
+        </div>
+       </div>
+
+      </div>
+     </div>
+    </div>
+   </section><!-- Projects Section -->
+   <section id="projects" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+     <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Featured Projects</h2>
+      <p class="text-gray-400 text-lg max-w-2xl mx-auto">Automation solutions that deliver real, measurable results</p>
+     </div>
+     <div class="grid md:grid-cols-2 gap-8"><!-- n8n Project 1 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">n8n</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Document Processing System</h3>
+        <p class="text-gray-400 mb-4">AI-powered document extraction and routing using custom n8n nodes for OCR, text parsing, and intelligent categorization.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">95% accuracy</span> <span class="text-gray-500 text-sm">Legal Firm</span>
+        </div>
+       </div>
+      </div><!-- n8n Project 2 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">n8n</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Financial Data Aggregation</h3>
+        <p class="text-gray-400 mb-4">Self-hosted workflow pulling data from 10+ financial APIs with real-time reconciliation and anomaly detection alerts.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">Real-time processing</span> <span class="text-gray-500 text-sm">Finance Company</span>
+        </div>
+       </div>
+      </div><!-- n8n Project 3 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">n8n</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Complex ETL Pipeline</h3>
+        <p class="text-gray-400 mb-4">Enterprise-grade data transformation and migration system with error handling, retry logic, and webhook triggers.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">100M+ records/month</span> <span class="text-gray-500 text-sm">Enterprise Client</span>
+        </div>
+       </div>
+      </div><!-- Make.com Project 1 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(157, 78, 221, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Make.com</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">E-commerce Order Pipeline</h3>
+        <p class="text-gray-400 mb-4">Multi-step scenario connecting Shopify, inventory management, shipping providers with conditional routing and notifications.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">40+ hours/week saved</span> <span class="text-gray-500 text-sm">E-commerce Client</span>
+        </div>
+       </div>
+      </div><!-- Make.com Project 2 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(157, 78, 221, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Make.com</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Content Publishing Workflow</h3>
+        <p class="text-gray-400 mb-4">Automated content distribution across WordPress, social media, email, and RSS using Make's data router and filters.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">60% time reduction</span> <span class="text-gray-500 text-sm">Publishing House</span>
+        </div>
+       </div>
+      </div><!-- Make.com Project 3 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(157, 78, 221, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Make.com</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Lead Scoring &amp; Qualification</h3>
+        <p class="text-gray-400 mb-4">Complex scenario with data routing, form parsing, and weighted scoring for automated lead qualification and CRM sync.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">5x lead throughput</span> <span class="text-gray-500 text-sm">B2B Marketing</span>
+        </div>
+       </div>
+      </div><!-- Zapier Project 1 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 116, 53, 0.3) 0%, rgba(255, 116, 53, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">Zapier</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Sales CRM Integration</h3>
+        <p class="text-gray-400 mb-4">Multi-step Zap connecting HubSpot, Slack, Google Sheets, and email for complete sales pipeline automation.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">3x faster response</span> <span class="text-gray-500 text-sm">SaaS Startup</span>
+        </div>
+       </div>
+      </div><!-- Zapier Project 2 -->
+      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 116, 53, 0.3) 0%, rgba(255, 116, 53, 0.15) 100%);">
+        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+       </div>
+       <div class="p-6">
+        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">Zapier</span>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">HR Onboarding Automation</h3>
+        <p class="text-gray-400 mb-4">Complete employee onboarding with account creation, document signing, equipment requests across 8+ integrated apps.</p>
+        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">80% faster onboarding</span> <span class="text-gray-500 text-sm">Tech Company</span>
+        </div>
+       </div>
+      </div><!-- Zapier Project 3 -->
+
+     </div>
+    </div>
+   </section>
+<!-- Contact Section -->
+<section id="contact" class="py-24 px-6" style="background: rgba(0,0,0,0.3);">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Let's Automate Together</h2>
+      <p class="text-gray-400 text-lg">Ready to streamline your workflows? Get in touch and let’s explore your automation needs.</p>
+    </div>
+    <div class="rounded-2xl p-8 md:p-12" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+      <form id="contact-form" action="https://formspree.io/f/mwvnzeab" method="POST" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-gray-300 mb-2 text-sm">Name</label>
+            <input type="text" name="name" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);" placeholder="Your name" required>
+          </div>
+          <div>
+            <label class="block text-gray-300 mb-2 text-sm">Email</label>
+            <input type="email" name="email" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);" placeholder="your@email.com" required>
+          </div>
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-2 text-sm">Platform Interest</label>
+          <select name="platform" class="w-full px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
+            <option value="" style="background: #1a1a2e;">Select a platform</option>
+            <option value="n8n" style="background: #1a1a2e;">n8n</option>
+            <option value="make" style="background: #1a1a2e;">Make.com</option>
+            <option value="zapier" style="background: #1a1a2e;">Zapier</option>
+            <option value="multiple" style="background: #1a1a2e;">Multiple Platforms</option>
+            <option value="not-sure" style="background: #1a1a2e;">Not Sure Yet</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-gray-300 mb-2 text-sm">Project Details</label>
+          <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all resize-none" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);" placeholder="Tell me about your automation needs..." required></textarea>
+        </div>
+        <button type="submit" class="w-full py-4 rounded-lg text-white font-semibold text-lg transition-all hover:scale-[1.02] active:scale-[0.98]" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">Send Message</button>
+      </form>
+      
+      <div id="success-message" class="hidden text-center py-8">
+        <div class="w-16 h-16 rounded-full mx-auto mb-4 flex items-center justify-center" style="background: rgba(16, 185, 129, 0.2);">
+          <svg class="w-8 h-8 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+        </div>
+        <h3 class="text-2xl font-bold text-white mb-2">Message Sent!</h3>
+        <p class="text-gray-400">Thanks for reaching out. I'll get back to you within 24 hours.</p>
+      </div>
+
+      <!-- email & socials stay unchanged -->
+		<div class="mt-8 pt-8 flex flex-col md:flex-row items-center justify-center gap-8 border-t border-gray-700">
+
+		  <!-- Email -->
+		  <a href="mailto:dennisd.dev@gmail.com" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-base">
+			<!-- Icon -->
+			<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+			</svg>
+			<!-- Label -->
+			<span>dennisd.dev@gmail.com</span>
+		  </a>
+
+		  <!-- LinkedIn -->
+		  <a href="https://www.linkedin.com/in/dendat/" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-base">
+			<!-- Icon -->
+			<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+			  <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.3h-3v-5.6c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.93v5.71h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/>
+			</svg>
+			<!-- Label -->
+			<span>LinkedIn</span>
+		  </a>
+		</div>
+    </div>
+  </div>
+</section>
+
+<!-- Formspree AJAX submission script -->
+<script>
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('success-message');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        successMessage.classList.remove('hidden');
+      } else {
+        const data = await response.json();
+        alert(data?.errors?.[0]?.message || "Oops! There was a problem.");
+      }
+    } catch (error) {
+      alert("Oops! There was a problem submitting your form.");
+      console.error(error);
+    }
+  });
+</script>
+
+<!-- Footer -->
+   <footer class="py-8 px-6 border-t border-white/10">
+     <div class="max-w-6xl mx-auto text-center">
+       <span class="text-gray-400 text-sm">
+         © 2026 dendat.dev
+       </span>
+     </div>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      hero_name: 'Dennis Datahan',
+      hero_title: 'Automation Specialist',
+      hero_tagline: 'Transforming complex workflows into seamless automated systems, helping businesses save time, cut costs, and maximize efficiency through intelligent automation.',
+      about_text: 'With 5+ years of experience in workflow automation, I help businesses eliminate repetitive tasks and focus on what matters. From simple task automation to complex enterprise integrations, I design systems that scale with your business.',
+      contact_email: 'dennisd.dev@gmail.com',
+      background_color: '#0f0f23',
+      surface_color: '#1a1a2e',
+      text_color: '#ffffff',
+      primary_action_color: '#6366f1',
+      secondary_action_color: '#8b5cf6',
+      font_family: 'Space Grotesk',
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const heroName = document.getElementById('hero-name');
+      const heroTitle = document.getElementById('hero-title');
+      const heroTagline = document.getElementById('hero-tagline');
+      const aboutText = document.getElementById('about-text');
+      const contactEmailDisplay = document.getElementById('contact-email-display');
+      const contactEmailLink = document.getElementById('contact-email-link');
+
+      if (heroName) heroName.textContent = config.hero_name || defaultConfig.hero_name;
+      if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+      if (heroTagline) heroTagline.textContent = config.hero_tagline || defaultConfig.hero_tagline;
+      if (aboutText) aboutText.textContent = config.about_text || defaultConfig.about_text;
+      
+      const email = config.contact_email || defaultConfig.contact_email;
+      if (contactEmailDisplay) contactEmailDisplay.textContent = email;
+      if (contactEmailLink) contactEmailLink.href = `mailto:${email}`;
+
+      // Apply colors
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+
+      document.documentElement.style.setProperty('--bg-color', bgColor);
+      document.documentElement.style.setProperty('--surface-color', surfaceColor);
+      document.documentElement.style.setProperty('--text-color', textColor);
+      document.documentElement.style.setProperty('--primary-color', primaryColor);
+      document.documentElement.style.setProperty('--secondary-color', secondaryColor);
+
+      // Apply font
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      document.body.style.fontFamily = `${fontFamily}, sans-serif`;
+
+      // Apply font size scaling
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.documentElement.style.fontSize = `${baseSize}px`;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ['hero_name', config.hero_name || defaultConfig.hero_name],
+        ['hero_title', config.hero_title || defaultConfig.hero_title],
+        ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+        ['about_text', config.about_text || defaultConfig.about_text],
+        ['contact_email', config.contact_email || defaultConfig.contact_email]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Contact form handling
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      contactForm.classList.add('hidden');
+      successMessage.classList.remove('hidden');
+      
+      setTimeout(() => {
+        contactForm.reset();
+        contactForm.classList.remove('hidden');
+        successMessage.classList.add('hidden');
+      }, 5000);
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d448045842eba05',t:'MTc3MjE2MTk1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+
