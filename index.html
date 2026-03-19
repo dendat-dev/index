@@ -3,6 +3,7 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">   
   <title>Let's Automate Together</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="/_sdk/element_sdk.js"></script>
@@ -211,15 +212,17 @@
      </div>
     </div>
    </section>
-<!-- Projects Section -->
 
+<!-- Projects Section -->
    <section id="projects" class="py-24 px-6">
     <div class="max-w-6xl mx-auto">
      <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-white mt-4 mb-4">Featured Projects</h2>
       <p class="text-gray-400 text-lg max-w-2xl mx-auto">Automation solutions that deliver real, measurable results</p>
      </div>
-     <div class="grid md:grid-cols-2 gap-8"><!-- n8n Project 1 -->
+    <div class="grid md:grid-cols-2 gap-8">
+     
+     <!-- n8n Project 1 -->
       <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);">
         <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -229,9 +232,13 @@
         <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">n8n</span>
         </div>
         <h3 class="text-xl font-bold text-white mb-2">Automated Invoice Follow-Up System</h3>
-        <p class="text-gray-400 mb-4">The Invoice Follow-Up System is an automated accounts receivable workflow built with n8n that helps freelancers and small businesses track overdue invoices and send timely payment reminders to clients.</p>
+          <p class="text-gray-400 mb-4">The Invoice Follow-Up System is an automated accounts receivable workflow built with n8n that helps freelancers and small businesses track overdue invoices, send timely payment reminders to clients, and maintain organized records. It streamlines collections, reduces manual work, and ensures faster payments.</p>
+            <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium"><a href="https://docs.google.com/document/d/1pqcW81rhxMPEKzBXO1slM995dtV0DTLbj1FTpBx0J1U" target="_blank"><strong>Documentation</strong></span></a> 
+            </div>  
        </div>
-      </div><!-- n8n Project 2 -->
+      </div>
+      
+      <!-- n8n Project 2 -->
       <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);">
 		<svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -241,25 +248,13 @@
         <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">n8n</span>
         </div>
         <h3 class="text-xl font-bold text-white mb-2">Financial Data Aggregation</h3>
-        <p class="text-gray-400 mb-4">Self-hosted workflow pulling data from 10+ financial APIs with real-time reconciliation and anomaly detection alerts.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">Real-time processing</span> <span class="text-gray-500 text-sm">Finance Company</span>
-        </div>
+          <p class="text-gray-400 mb-4">Self-hosted workflow pulling data from 10+ financial APIs with real-time reconciliation and anomaly detection alerts.</p>
+            <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium"><a href="https://docs.google.com/document/d/1pqcW81rhxMPEKzBXO1slM995dtV0DTLbj1FTpBx0J1U" target="_blank"><strong>Documentation (Overview & Logic)</strong></span></a> 
+            </div>  
        </div>
-      </div><!-- n8n Project 3 -->
-      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 107, 107, 0.3) 0%, rgba(255, 107, 107, 0.15) 100%);">
-        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-        </svg>
-       </div>
-       <div class="p-6">
-        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 107, 107, 0.2); color: #ff8a8a;">n8n</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">Complex ETL Pipeline</h3>
-        <p class="text-gray-400 mb-4">Enterprise-grade data transformation and migration system with error handling, retry logic, and webhook triggers.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">100M+ records/month</span> <span class="text-gray-500 text-sm">Enterprise Client</span>
-        </div>
-       </div>
-      </div><!-- Make.com Project 1 -->
+      </div>      
+
+      <!-- Make.com Project 1 -->
       <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(157, 78, 221, 0.15) 100%);">
         <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -268,40 +263,30 @@
        <div class="p-6">
         <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Make.com</span>
         </div>
-        <h3 class="text-xl font-bold text-white mb-2">E-commerce Order Pipeline</h3>
-        <p class="text-gray-400 mb-4">Multi-step scenario connecting Shopify, inventory management, shipping providers with conditional routing and notifications.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">40+ hours/week saved</span> <span class="text-gray-500 text-sm">E-commerce Client</span>
-        </div>
+        <h3 class="text-xl font-bold text-white mb-2">AI-Powered Automated Customer Service</h3>
+          <p class="text-gray-400 mb-4">I developed a comprehensive, end-to-end no-code customer service automation system using Make.com that streamlines the handling of incoming customer emails for a company. The system automatically captures emails, parses and categorizes customer queries, and triggers structured workflows based on the type and priority of each request.</p>
+            <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium"><a href="https://docs.google.com/document/d/1SCC1tSo7W_062YRZ7OFgJN-N5yIcbA0btjPbyD8iSgU/edit?usp=sharing" target="_blank"><strong>Documentation</strong></span></a> 
+            </div>  
        </div>
-      </div><!-- Make.com Project 2 -->
-      <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-       <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(157, 78, 221, 0.15) 100%);">
-        <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-       </div>
-       <div class="p-6">
-        <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Make.com</span>
-        </div>
-        <h3 class="text-xl font-bold text-white mb-2">Content Publishing Workflow</h3>
-        <p class="text-gray-400 mb-4">Automated content distribution across WordPress, social media, email, and RSS using Make's data router and filters.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">60% time reduction</span> <span class="text-gray-500 text-sm">Publishing House</span>
-        </div>
-       </div>
-      </div><!-- Make.com Project 3 -->
+      </div>
+      
+      <!-- Make.com Project 2 -->
       <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(157, 78, 221, 0.3) 0%, rgba(157, 78, 221, 0.15) 100%);">
         <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-        </svg>
+        </svg>       
        </div>
        <div class="p-6">
         <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(157, 78, 221, 0.2); color: #c77dff;">Make.com</span>
         </div>
-        <h3 class="text-xl font-bold text-white mb-2">Lead Scoring &amp; Qualification</h3>
-        <p class="text-gray-400 mb-4">Complex scenario with data routing, form parsing, and weighted scoring for automated lead qualification and CRM sync.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">5x lead throughput</span> <span class="text-gray-500 text-sm">B2B Marketing</span>
-        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Lead Management Automation</h3>
+          <p class="text-gray-400 mb-4">I built an end-to-end no-code lead management automation using Make.com that captures incoming Google Form responses and turns them into a structured workflow. It filters qualified leads, stores data in Google Sheets, and sends real-time notifications via Gmail and Slack, ensuring faster tracking and reduced manual work.</p>
+            <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium"><a href="https://docs.google.com/document/d/1hSjgl4dMcb6vIhMeTQX04ufG3LSAZlaYfZG8Txy8R2g/edit?usp=sharing" target="_blank"><strong>Documentation</strong></span></a> 
+            </div>  
        </div>
-      </div><!-- Zapier Project 1 -->
+      </div>
+      
+      <!-- Zapier Project 1 -->
       <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 116, 53, 0.3) 0%, rgba(255, 116, 53, 0.15) 100%);">
         <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
@@ -311,11 +296,13 @@
         <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">Zapier</span>
         </div>
         <h3 class="text-xl font-bold text-white mb-2">Sales CRM Integration</h3>
-        <p class="text-gray-400 mb-4">Multi-step Zap connecting HubSpot, Slack, Google Sheets, and email for complete sales pipeline automation.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">3x faster response</span> <span class="text-gray-500 text-sm">SaaS Startup</span>
-        </div>
+          <p class="text-gray-400 mb-4">This Zap streamlines your sales pipeline by automatically capturing new deals from HubSpot and instantly sharing updates with your team via Slack, Google Sheets, and email. It improves visibility, reduces manual work, and ensures faster, more coordinated follow-ups across your sales operations.</p>
+            <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium"><a href="https://docs.google.com/document/d/1wEqD2UjA6see9ai-HQW_pRk23xNqhe-EziJdfYvVFYE/edit?usp=sharing" target="_blank"><strong>Documentation</strong></span></a> 
+            </div>  
        </div>
-      </div><!-- Zapier Project 2 -->
+      </div>
+      
+      <!-- Zapier Project 2 -->
       <div class="card-hover rounded-2xl overflow-hidden" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
        <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, rgba(255, 116, 53, 0.3) 0%, rgba(255, 116, 53, 0.15) 100%);">
         <svg class="w-20 h-20 text-white opacity-60" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -324,14 +311,12 @@
        <div class="p-6">
         <div class="flex items-center gap-2 mb-3"><span class="px-2 py-1 rounded text-xs" style="background: rgba(255, 116, 53, 0.2); color: #ff9866;">Zapier</span>
         </div>
-        <h3 class="text-xl font-bold text-white mb-2">HR Onboarding Automation</h3>
-        <p class="text-gray-400 mb-4">Complete employee onboarding with account creation, document signing, equipment requests across 8+ integrated apps.</p>
-        <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium">80% faster onboarding</span> <span class="text-gray-500 text-sm">Tech Company</span>
-        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Intelligent Customer Feedback Response System</h3>
+          <p class="text-gray-400 mb-4">An automated workflow that captures customer feedback through Google Forms and generates personalized, AI-powered responses sent directly to the customer via Gmail. This system streamlines customer communication by intelligently addressing feedback without manual intervention.</p>
+            <div class="flex items-center justify-between pt-4" style="border-top: 1px solid rgba(255,255,255,0.1);"><span class="text-indigo-400 text-sm font-medium"><a href="https://docs.google.com/document/d/1__jBst7S-fpjCUdhxl3J77ZDYNJwddmBKJyvBJcc9ss/edit?usp=sharing" target="_blank"><strong>Documentation</strong></span></a> 
+            </div>  
        </div>
-      </div><!-- Zapier Project 3 -->
-
-     </div>
+      </div>
     </div>
    </section>
 <!-- Contact Section -->
@@ -356,7 +341,7 @@
         <div>
           <label class="block text-gray-300 mb-2 text-sm">Platform Interest</label>
           <select name="platform" class="w-full px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);">
-            <option value="" style="background: #1a1a2e;">Select a platform</option>
+            <option value="" style="background: #1a1a2e;">Select a platform</option> 
             <option value="n8n" style="background: #1a1a2e;">n8n</option>
             <option value="make" style="background: #1a1a2e;">Make.com</option>
             <option value="zapier" style="background: #1a1a2e;">Zapier</option>
